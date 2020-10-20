@@ -8,9 +8,9 @@ class ParentComponent extends React.Component {
     lastName: "",
   }
 
-  handleFirstNameChange = event => {
+  handleChange = event => {
     this.setState({
-      firstName: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -25,8 +25,7 @@ class ParentComponent extends React.Component {
       <div>
         <Form
         formData={this.state}
-        handleFirstNameChange={this.handleFirstNameChange}
-        handleLastNameChange={this.handleLastNameChange}
+        handleChange={this.handleChange}
         />
         <DispalyData formData={this.state}/>
       </div>
