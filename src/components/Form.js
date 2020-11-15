@@ -1,31 +1,65 @@
 import React from 'react';
 
-class Form extends React.Component {
-  state = {
-    firstName: "John",
-    lastName: "Henry"
+  class Form extends React.Component {
+    render(){
+      return (
+        <div>
+          <form>
+            <input type="text" onChange={event => this.props.handleFirstNameChange(event)}/>
+            <input type="text" onChange={event => this.props.handleLastNameChange(event)}/>
+          </form>
+        </div>
+      )
+    }
   }
 
-  handleFirstNameChange = event => {
-    this.setState({
-      firstName: event.target.value
-    })
-  }
+// class Form extends React.Component {
+//   state = {
+//     firstName: "John",
+//     lastName: "Henry",
+//     submittedData: []
+//   }
 
-  handleLastNameChange = event => {
-    this.setState({
-      lastName: event.target.value
-    })
-  }
+//   handleFirstNameChange = event => {
+//     this.setState({
+//       firstName: event.target.value
+//     })
+//   }
 
-  render() {
-    return (
-      <form>
-        <input type="text" name="firstName" onChange={event => this.handleFirstNameChange(event)} value={this.state.firstName} />
-        <input type="text" name="lastName" onChange={event => this.handleLastNameChange(event)} value={this.state.lastName} />
-      </form>
-    )
-  }
-}
+//   handleLastNameChange = event => {
+//     this.setState({
+//       lastName: event.target.value
+//     })
+//   }
+
+//   handleSubmit = event => {
+//     event.preventDefault()
+//     // let formData = { firstName: this.state.firstName, lastName: this.state.lastName }
+//     // let dataArray = this.state.submittedData.concat(formData)
+//     // this.sendFormDataSomewhere(dataArray)
+//     // const firstName = event.target.children[0].value
+//     // const lastName = event.target.children[1].value
+//     // this.sendFormDataSomewhere({firstName, lastName})
+//     this.sendFormDataSomewhere(this.state)
+//   }
+
+//   listOfSubmissions = () => {
+//     return this.state.submittedData.map(data => {
+//       return <div><span>{data.firstName}</span><span>{data.lastName}</span></div>
+//     })
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={event => this.handleSubmit(event)}>
+//           <input type="text" name="firstName" onChange={event => this.handleFirstNameChange(event)} value={this.state.firstName} />
+//           <input type="text" name="lastName" onChange={event => this.handleLastNameChange(event)} value={this.state.lastName} />
+//         </form>
+//         {this.listOfSubmissions()}
+//       </div>
+//     )
+//   }
+// }
 
 export default Form;
